@@ -7,6 +7,8 @@ between an application and funding.
 Built with Meta's [Astryx](https://github.com/meta/astryx) design system (`@astryxdesign/core`) on
 React 19, Vite and StyleX. Data comes from the sibling **`funding-graphql`** API.
 
+![Demo: filtering the funding queue, opening an application, and reviewing its funding tasks](docs/demo.webp)
+
 ```
 browser ──▶ Vite dev server :5173 ──/graphql proxy──▶ funding-graphql :4000 ──▶ Postgres (funding-db) :5432
 ```
@@ -148,6 +150,30 @@ The app always calls the relative path `/graphql`.
 | `npm run preview` | Serve the production build, with the same `/graphql` proxy |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run astryx -- <cmd>` | The project's Astryx CLI, e.g. `npm run astryx -- component Table` |
+| `npm run record:demo` | Re-record `docs/demo.webp` (see below) |
+
+### Re-recording the demo
+
+`scripts/record-demo.mjs` drives the running app with Playwright, draws captions and a cursor into the
+page, records a video, and converts it to an animated WebP. It only filters, opens and expands; it never
+saves a status change or a note, so it leaves the data unchanged.
+
+```bash
+brew install ffmpeg webp          # once: ffmpeg + img2webp
+npx playwright install chromium   # once, if Playwright has no browser yet
+npm run dev                       # in another terminal; the API must be up too
+npm run record:demo               # writes docs/demo.webp (~1 MB, ~55 s)
+```
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `DEMO_URL` | `http://localhost:5173` | App to record |
+| `DEMO_OUT` | `docs/demo.webp` | Output file |
+| `DEMO_WIDTH` | `1200` | Output width in px (recorded at 1440×900) |
+| `DEMO_FPS` | `8` | Frames per second in the WebP |
+| `DEMO_KEEP` | not set | Keep the raw `.webm` and print its path |
+
+The captions are in the script. Edit the `caption(...)` calls to change the wording or timing.
 
 ---
 
@@ -173,6 +199,8 @@ funding-astryx-ui/
 │   │   ├── Tasks.tsx           # Progress, All/Open toggle, task cards
 │   │   └── ActivityTimeline.tsx# Event list used per task and for the application
 │   └── themes/funding/         # GENERATED app copy of the theme; do not edit
+├── scripts/record-demo.mjs     # Playwright → captioned docs/demo.webp
+├── docs/demo.webp              # README demo (npm run record:demo)
 ├── themes/funding/             # Theme editor source (settings, palette, preview pictures)
 ├── AGENTS.md, GEMINI.md        # Astryx guide for AI coding agents (written by `astryx init`)
 └── README.md
