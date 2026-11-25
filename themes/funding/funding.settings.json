@@ -1,0 +1,75 @@
+{
+  "name": "funding",
+  "like": "neutral",
+  "mode": "light-only",
+  "settings": [
+    {
+      "thing": "accent",
+      "value": "#5b4ee6",
+      "source": "dial"
+    },
+    {
+      "thing": "neutral",
+      "value": "#64748b",
+      "source": "dial"
+    },
+    {
+      "thing": "background-color",
+      "value": "var(--color-accent-muted)",
+      "source": "property",
+      "on": "side-nav-item",
+      "state": "selected"
+    },
+    {
+      "thing": "background-color",
+      "value": "var(--color-accent-muted)",
+      "source": "property",
+      "on": "pagination-item",
+      "state": "selected"
+    },
+    {
+      "thing": "background-color",
+      "value": "var(--color-accent-muted)",
+      "source": "property",
+      "on": "top-nav-item",
+      "state": "selected"
+    },
+    {
+      "thing": "background-color",
+      "value": "var(--color-accent-muted)",
+      "source": "property",
+      "on": "segmented-control-item",
+      "state": "selected"
+    },
+    {
+      "thing": "color",
+      "value": "var(--color-text-accent)",
+      "source": "property",
+      "on": "side-nav-item",
+      "state": "selected"
+    },
+    {
+      "thing": "color",
+      "value": "var(--color-text-accent)",
+      "source": "property",
+      "on": "pagination-item",
+      "state": "selected"
+    },
+    {
+      "thing": "color",
+      "value": "var(--color-text-accent)",
+      "source": "property",
+      "on": "top-nav-item",
+      "state": "selected"
+    },
+    {
+      "thing": "color",
+      "value": "var(--color-text-accent)",
+      "source": "property",
+      "on": "segmented-control-item",
+      "state": "selected"
+    }
+  ],
+  "lifted": [],
+  "palette": "b72b978f613e2fe38333d3931fe22965482cb0baa2363f958c69dd28eb2db6b6"
+}

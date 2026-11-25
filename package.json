@@ -1,0 +1,34 @@
+{
+  "name": "funding-astryx-ui",
+  "version": "1.0.0",
+  "description": "Funding backoffice UI built on Meta Astryx, backed by funding-graphql",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "astryx": "node node_modules/@astryxdesign/cli/clients/cli/bin/astryx.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@astryxdesign/cli": "^0.7.17",
+    "@stylexjs/unplugin": "^0.19.2",
+    "@types/node": "^26.6.10",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.8"
+  },
+  "dependencies": {
+    "@astryxdesign/core": "^0.7.17",
+    "@astryxdesign/theme-neutral": "^0.7.17",
+    "@stylexjs/stylex": "^0.19.2",
+    "lucide-react": "^1.80.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "private": true
+}

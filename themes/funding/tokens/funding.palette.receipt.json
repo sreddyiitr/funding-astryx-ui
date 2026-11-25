@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "recipe": "astryx-oklch-v2",
+  "generatorVersion": "palette-generator-v1",
+  "candidateFormatVersion": "palette-typescript-v1",
+  "candidateSha256": "c88970a098866094b35bd936eeb4f87fd9ba7343017f9f8e5894b170d9bd515c",
+  "request": {
+    "recipe": "astryx-oklch-v2",
+    "vibrancy": 50,
+    "neutralProfile": "neutral-v1",
+    "modeStrategy": "light-and-dark",
+    "stops": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "families": [
+      {
+        "id": "accent",
+        "name": "Accent",
+        "seed": "#5b4ee6",
+        "kind": "chromatic",
+        "anchors": [
+          {
+            "mode": "light",
+            "stop": 45,
+            "color": "#5b4ee6",
+            "policy": "exact"
+          }
+        ]
+      },
+      {
+        "id": "neutral",
+        "name": "Neutral",
+        "seed": "#64748b",
+        "kind": "neutral",
+        "anchors": [
+          {
+            "mode": "light",
+            "stop": 50,
+            "color": "#64748b",
+            "policy": "exact"
+          },
+          {
+            "mode": "dark",
+            "stop": 50,
+            "color": "#64748b",
+            "policy": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  "diagnostics": {
+    "families": {
+      "accent": {
+        "light": {
+          "monotonic": true,
+          "minimumAdjacentDeltaE": 4.230211889369858,
+          "maximumAdjacentDeltaE": 20.274534502134514,
+          "maximumHueDrift": 1.2376753205797968,
+          "hueIdentityRisk": null,
+          "gamutMappedStops": [
+            60
+          ],
+          "anchors": [
+            {
+              "mode": "light",
+              "stop": 45,
+              "color": "#5b4ee6",
+              "policy": "exact",
+              "generatedColor": "#5b4ee6",
+              "deltaE": 0
+            }
+          ]
+        },
+        "dark": {
+          "monotonic": true,
+          "minimumAdjacentDeltaE": 4.2128692442787585,
+          "maximumAdjacentDeltaE": 19.64629404786096,
+          "maximumHueDrift": 1.4465174097905447,
+          "hueIdentityRisk": null,
+          "gamutMappedStops": [],
+          "anchors": []
+        }
+      },
+      "neutral": {
+        "light": {
+          "monotonic": true,
+          "minimumAdjacentDeltaE": 3.777253554845757,
+          "maximumAdjacentDeltaE": 17.74262930416785,
+          "maximumHueDrift": 169.31671666330146,
+          "hueIdentityRisk": null,
+          "gamutMappedStops": [
+            100
+          ],
+          "anchors": [
+            {
+              "mode": "light",
+              "stop": 50,
+              "color": "#64748b",
+              "policy": "exact",
+              "generatedColor": "#64748b",
+              "deltaE": 0
+            }
+          ]
+        },
+        "dark": {
+          "monotonic": true,
+          "minimumAdjacentDeltaE": 3.6262889229690134,
+          "maximumAdjacentDeltaE": 17.74425985636273,
+          "maximumHueDrift": 169.79610019444453,
+          "hueIdentityRisk": null,
+          "gamutMappedStops": [
+            100
+          ],
+          "anchors": [
+            {
+              "mode": "dark",
+              "stop": 50,
+              "color": "#64748b",
+              "policy": "exact",
+              "generatedColor": "#64748b",
+              "deltaE": 0
+            }
+          ]
+        }
+      }
+    },
+    "coordination": [
+      {
+        "mode": "light",
+        "stop": 50,
+        "closestFamilies": null,
+        "minimumFamilyDeltaE": null,
+        "strongestFamily": "Accent",
+        "weakestFamily": "Accent",
+        "chromaRatio": 1
+      },
+      {
+        "mode": "dark",
+        "stop": 50,
+        "closestFamilies": null,
+        "minimumFamilyDeltaE": null,
+        "strongestFamily": "Accent",
+        "weakestFamily": "Accent",
+        "chromaRatio": 1
+      }
+    ]
+  }
+}
