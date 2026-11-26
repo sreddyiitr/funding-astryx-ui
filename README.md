@@ -38,9 +38,8 @@ browser ──▶ Vite dev server :5173 ──/graphql proxy──▶ funding-gr
 # 1. Database (sibling project)
 cd ../funding-db && docker compose up -d
 
-# 2. GraphQL API (sibling project). Needs the application filters added on the
-#    feature/application-filters branch.
-cd ../funding-graphql && docker compose up -d --build
+# 2. GraphQL API (sibling project), on an up-to-date main
+cd ../funding-graphql && git pull && docker compose up -d --build
 curl localhost:4000/actuator/health          # {"status":"UP"}
 
 # 3. This UI
@@ -222,7 +221,7 @@ All calls are in `src/lib/api.ts`.
 | `addActivityEvent(input)` with `action: "NOTE_ADDED"` | Add note |
 
 The `statuses`, `search`, `taskCategory` and `taskStatus` arguments were added to `funding-graphql` for
-this app (branch `feature/application-filters`). They are optional and combine with AND. The existing
+this app ([funding-graphql#1](https://github.com/sreddyiitr/funding-graphql/pull/1)). They are optional and combine with AND. The existing
 `status`, `dealerId`, `limit` and `offset` arguments work as before.
 
 ---
@@ -292,7 +291,7 @@ Every change rebuilds `src/themes/funding/`, which the app picks up straight awa
 | Symptom | Fix |
 | --- | --- |
 | Queue shows **"Couldn't load applications"** | The API isn't running on :4000: `curl localhost:4000/actuator/health`. Start `funding-graphql`, or set `GRAPHQL_URL` |
-| Validation error saying an argument such as `statuses`, `search` or `taskCategory` is unknown | The API is running an older build. Check out `feature/application-filters` in `funding-graphql` and run `docker compose up -d --build` |
+| Validation error saying an argument such as `statuses`, `search` or `taskCategory` is unknown | The API is running an older build. In `funding-graphql`, run `git pull` on `main`, then `docker compose up -d --build` |
 | `role "funder_admin" does not exist` in the API logs | A local Homebrew Postgres has port 5432. Run `brew services stop postgresql@18` |
 | Toast **"Unknown actor: …"** | Choose a valid user in **Acting as**, or clear `localStorage["funding.actor"]` |
 | `Unexpected stylex.create call at runtime` | The StyleX plugin is missing from `vite.config.ts` (`stylex.vite()` must come before `react()`) |
